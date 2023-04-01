@@ -26,5 +26,5 @@ doc/api/
 .flutter-plugins
 .flutter-plugins-dependencies
 
-backend\Flicker8k_Dataset/
-backend\Flickr8k_text/
+backend/Flicker8k_Dataset/
+backend/Flickr8k_text/
