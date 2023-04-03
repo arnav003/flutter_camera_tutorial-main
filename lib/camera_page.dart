@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 
@@ -6,14 +7,14 @@ import 'package:flutter_experiment/api.dart';
 
 class CameraPage extends StatefulWidget {
   final List<CameraDescription>? cameras;
-  CameraPage({this.cameras, Key? key}) : super(key: key);
+  const CameraPage({this.cameras, Key? key}) : super(key: key);
 
   @override
   _CameraPageState createState() => _CameraPageState();
 }
 
 class _CameraPageState extends State<CameraPage> {
-  File _image = File("");
+  //File _image = File("");
 
   late CameraController controller;
   XFile? pictureFile;
@@ -65,8 +66,10 @@ class _CameraPageState extends State<CameraPage> {
           child: ElevatedButton(
             onPressed: () async {
               pictureFile = await controller.takePicture();
-              print(pictureFile!.path);
-              print(uploadImage(File(pictureFile!.path), uploadUrl));
+              if (pictureFile != null) {
+                File imageFile = File(pictureFile!.path);
+                uploadImage(imageFile, uploadUrl);
+              }
               setState(() {});
             },
             child: const Text('Capture Image'),
@@ -76,7 +79,8 @@ class _CameraPageState extends State<CameraPage> {
           Image.network(
             pictureFile!.path,
             height: 200,
-          )
+          ),
+
         //Android/iOS
         // Image.file(File(pictureFile!.path)))
       ],

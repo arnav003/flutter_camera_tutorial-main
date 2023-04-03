@@ -31,6 +31,8 @@ dependencies:
     sdk: flutter
   dio: ^4.0.6
   image_picker: ^0.8.6
+  file_picker: ^5.0.1
+  path_provider:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
