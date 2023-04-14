@@ -2,11 +2,15 @@ import base64
 
 from flask import Flask, request, jsonify
 
+import generate
+
 app = Flask(__name__)
 
-
-@app.route("/api", methods=['GET','POST'])
+@app.route("/", methods=["POST"])
 def main():
-    return jsonify({
-        "captions":"Refresh again !"
-        })  
+    file = request.files['image']
+    file.save('im-received.jpg')
+    # Read the image via file.stream
+    caption = generate.generate_captions(r'D:\Events\Mini-Hacks\Sightscope_Flutter\backend\im-received.jpg')
+    print(caption)
+    return caption
