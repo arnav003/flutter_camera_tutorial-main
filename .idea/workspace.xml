@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3ee20afe-3652-4863-8379-f322b2521863" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/im-received.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/im-received.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +57,8 @@
       <workItem from="1681202392103" duration="2924000" />
       <workItem from="1681410731806" duration="3409000" />
       <workItem from="1681449247279" duration="5113000" />
+      <workItem from="1682329517407" duration="2860000" />
+      <workItem from="1682415832148" duration="2266000" />
     </task>
     <servers />
   </component>
@@ -64,5 +68,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Sightscope_Flutter$web.coverage" NAME="web Coverage Results" MODIFIED="1681204414063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/Sightscope_Flutter$description.coverage" NAME="description Coverage Results" MODIFIED="1681451798788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/Sightscope_Flutter$train.coverage" NAME="train Coverage Results" MODIFIED="1682416653981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
   </component>
 </project>

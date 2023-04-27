@@ -13,6 +13,8 @@ from keras.layers import Dropout
 from keras.layers import add
 from keras.callbacks import ModelCheckpoint
 
+import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))
+
 def load_doc(filename):
     file = open(filename, 'r')
     text = file.read()
@@ -85,7 +87,7 @@ def max_length(descriptions):
 
 
 def define_model(vocab_size, max_length):
-    inputs1 = Input(shape=(4096,))
+    inputs1 = Input(shape=(1000,))
     fe1 = Dropout(0.5)(inputs1)
     fe2 = Dense(256, activation='relu')(fe1)
 
@@ -117,12 +119,15 @@ def data_generator(descriptions, photos, tokenizer, max_length):
 
 ##################################
 
-filename = 'Flickr8k_text/Flickr_8k.trainImages.txt'
+#filename = '\D:\Events\Mini-Hacks\Sightscope_Flutter\\backend\Flickr8k_text\Flickr_8k.trainImages.txt'
+filename = '/mnt/d/Events/Mini-Hacks/Sightscope_Flutter/backend/Flickr8k_text/Flickr_8k.trainImages.txt'
 train = load_set(filename)
 print("train len pics: ", len(train))
-train_descriptions = load_clean_descriptions('Flickr8k_text/Descriptions.txt', train)
+#train_descriptions = load_clean_descriptions('D:\Events\Mini-Hacks\Sightscope_Flutter\\backend\Flickr8k_text\descriptions.txt', train)
+train_descriptions = load_clean_descriptions('/mnt/d/Events/Mini-Hacks/Sightscope_Flutter/backend/Flickr8k_text/descriptions.txt', train)
 print("desc len: ", len(train_descriptions))
-train_features = load_photo_features('features.pkl', train)
+#train_features = load_photo_features('D:\Events\Mini-Hacks\Sightscope_Flutter\\backend\\features.pkl', train)
+train_features = load_photo_features('/mnt/d/Events/Mini-Hacks/Sightscope_Flutter/backend/features.pkl', train)
 print("length of pic features: ", len(train_features))
 tokenizer = create_tokenizer(train_descriptions)
 vocab_size = len(tokenizer.word_index) + 1
@@ -136,5 +141,5 @@ epochs = 500
 steps = len(train_descriptions) / 32
 for i in range(epochs):
     generator = data_generator(train_descriptions, train_features, tokenizer, max_length)
-    model.fit_generator(generator, epochs=1, steps_per_epoch=steps, verbose=1)
+    model.fit(generator, epochs=1, steps_per_epoch=steps, verbose=1)
     model.save('model_' + str(i) + '.h5')
